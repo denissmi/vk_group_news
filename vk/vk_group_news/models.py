@@ -3,7 +3,7 @@ from django.db import models
 
 class VkPost(models.Model):
     text = models.TextField()
-    picture = models.ImageField()
+    image = models.ImageField(upload_to='vk_post_images')
     publication_date = models.DateTimeField()
     message_id = models.IntegerField()
     link = models.URLField()
