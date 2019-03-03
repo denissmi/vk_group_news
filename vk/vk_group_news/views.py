@@ -36,7 +36,7 @@ class VkPostDetail(APIView):
 
     def put(self, request, pk, format=None):
         vk_post = self.get_object(pk)
-        serializer = VkPostSerializer(vk_post, request.data)
+        serializer = VkPostSerializer(vk_post, data=request.data, files=request.files)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
